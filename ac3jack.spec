@@ -11,6 +11,7 @@ Source:		%{name}-%{version}.tar.bz2
 URL:		http://essej.net/ac3jack/
 License:	GPL
 Group:		Sound
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	pkgconfig
 BuildRequires:	ffmpeg-devel jackit-devel
 BuildRequires:	libsndfile-devel
