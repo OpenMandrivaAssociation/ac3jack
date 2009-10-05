@@ -1,20 +1,20 @@
 %define name	ac3jack
 %define version	0.1.2
-%define release %mkrel 7
+%define release %mkrel 8
 
 Name: 	 	%{name}
 Summary: 	Jack audio to ac3 surround converter
 Version: 	%{version}
 Release: 	%{release}
-
-Source:		%{name}-%{version}.tar.bz2
 URL:		http://essej.net/ac3jack/
 License:	GPL
 Group:		Sound
-BuildRoot:	%{_tmppath}/%{name}-buildroot
+Source:		%{name}-%{version}.tar.bz2
+Patch:      ac3jack-0.1.2-fix-ffmpeg-includes.patch
 BuildRequires:	pkgconfig
 BuildRequires:	ffmpeg-devel jackit-devel
 BuildRequires:	libsndfile-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 ac3jack is a tool for creating an AC-3 (Dolby Digital) multichannel stream
@@ -34,17 +34,18 @@ DVD and film soundtracks, it must be OK.
 
 %prep
 %setup -q
+%patch -p 1
 
 %build
-%configure
+%configure2_5x
 %make
 										
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
