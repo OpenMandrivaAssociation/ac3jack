@@ -9,6 +9,7 @@ Release: 	%{release}
 
 Source0:	http://www.essej.net/ac3jack/%{name}-%{version}.tar.gz
 Patch0:		%{name}-2.0.3-mdv-fix-gcc4.4.patch
+Patch1:		ac3jack-2.0.3-boost-mt.patch
 URL:		http://www.essej.net/ac3jack/
 License:	GPLv2+
 Group:		Sound
@@ -42,14 +43,17 @@ DVD and film soundtracks, it must be OK.
 %prep
 %setup -q
 %patch0 -p1 -b .gcc44
+%patch1 -p0 -b .boost
+touch AUTHORS ChangeLog
 
 %build
-%configure
+autoreconf -fi
+%configure2_5x
 %make
 										
 %install
 rm -rf %{buildroot}
-%makeinstall
+%makeinstall_std
 
 # menu entry
 mkdir -p %{buildroot}%{_datadir}/applications
