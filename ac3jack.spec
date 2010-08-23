@@ -1,6 +1,6 @@
 %define name	ac3jack
 %define version	2.0.3
-%define release %mkrel 4
+%define release %mkrel 5
 
 Name: 	 	%{name}
 Summary: 	Jack audio to ac3 surround converter
