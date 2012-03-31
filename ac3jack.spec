@@ -1,7 +1,7 @@
 Name:		ac3jack
 Summary:	Jack audio to ac3 surround converter
 Version:	2.0.3
-Release:	%mkrel 7
+Release:	8
 
 Source0:	http://www.essej.net/ac3jack/%{name}-%{version}.tar.gz
 Patch0:		%{name}-2.0.3-mdv-fix-gcc4.4.patch
@@ -10,7 +10,7 @@ URL:		http://www.essej.net/ac3jack/
 License:	GPLv2+
 Group:		Sound
 BuildRequires:	jackit-devel
-BuildRequires:	libsndfile-devel
+BuildRequires:	pkgconfig(sndfile)
 BuildRequires:	ffmpeg-devel
 BuildRequires:	aften-static-devel
 BuildRequires:	libsigc++1.2-devel
