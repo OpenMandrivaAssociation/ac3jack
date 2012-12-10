@@ -5,7 +5,7 @@
  
  BOOST_CFLAGS=" -I/opt/local/include -pthread"
 -BOOST_LIBS=" -L/opt/local/lib -lboost_thread"
-+BOOST_LIBS=" -L/opt/local/lib -lboost_thread-mt"
++BOOST_LIBS=" -L/opt/local/lib -lboost_thread-mt -lboost_system"
  AC_SUBST(BOOST_LIBS)
  AC_SUBST(BOOST_CFLAGS)
  

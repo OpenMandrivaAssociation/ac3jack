@@ -41,13 +41,15 @@ DVD and film soundtracks, it must be OK.
 %patch1 -p0 -b .boost
 touch AUTHORS ChangeLog
 
+sed -i -e 's/TIME_UTC/TIME_UTC_/g' src/alsa_spdif_writer.cpp src/file_writer.cpp
+sed -i '25a\#include "string.h"' src/ringbuffer.hpp
+
 %build
 autoreconf -fi
 %configure2_5x
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 # menu entry
@@ -71,3 +73,82 @@ rm -rf %{buildroot}
 %doc README
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
+
+
+%changelog
+* Sat Mar 31 2012 Bernhard Rosenkraenzer <bero@bero.eu> 2.0.3-8
++ Revision: 788432
+- Build for boost 1.49
+- Don't buildrequire the 32bit version of libsndfile-devel on 64bit
+
+* Thu Jan 19 2012 Andrey Bondrov <abondrov@mandriva.org> 2.0.3-7
++ Revision: 762341
+- Rebuild against utf8 wxGTK2.8
+
+* Mon Mar 14 2011 Funda Wang <fwang@mandriva.org> 2.0.3-6
++ Revision: 644447
+- rebuild for new boost
+
+* Mon Aug 23 2010 Funda Wang <fwang@mandriva.org> 2.0.3-5mdv2011.0
++ Revision: 572119
+- rebuild for new boost
+
+* Thu Aug 05 2010 Funda Wang <fwang@mandriva.org> 2.0.3-4mdv2011.0
++ Revision: 566095
+- rebuild for new boost
+
+* Mon Feb 08 2010 Anssi Hannula <anssi@mandriva.org> 2.0.3-3mdv2010.1
++ Revision: 501882
+- rebuild for new boost
+
+* Wed Feb 03 2010 Funda Wang <fwang@mandriva.org> 2.0.3-2mdv2010.1
++ Revision: 500121
+- more fixes for gcc 4.4
+- link against boost-mt
+- rebuild for new boost
+
+* Sun Nov 08 2009 Jérôme Brenier <incubusss@mandriva.org> 2.0.3-1mdv2010.1
++ Revision: 463219
+- update to new version 2.0.3
+- BR modified accordingly
+- fix build with gcc 4.4 (Patch0)
+- drop no more needed ffmpeg includes patch
+- add menu entry
+- fix license tag
+
+* Mon Oct 05 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.1.2-8mdv2010.0
++ Revision: 454238
+- fix build
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+    - rebuild
+    - rebuild
+
+* Thu Dec 20 2007 Olivier Blin <blino@mandriva.org> 0.1.2-4mdv2008.1
++ Revision: 135813
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Sat Jul 21 2007 Stefan van der Eijk <stefan@mandriva.org> 0.1.2-4mdv2008.0
++ Revision: 54302
+- Import ac3jack
+
+
+
+* Mon Jun 26 2006 Lenny Cartier <lenny@mandriva.com> 0.1.2-4mdv2007.0
+- rebuild
+
+* Fri Mar 31 2006 Austin Acton <austin@mandriva.org> 0.1.2-3mdk
+- Rebuild
+
+* Tue Nov 08 2005 Austin Acton <austin@mandriva.org> 0.1.2-2mdk
+- Rebuild
+
+* Mon Feb 16 2004 Austin Acton <austin@mandrake.org> 0.1.2-1mdk
+- 0.1.2
+
+* Wed Jan 14 2004 Austin Acton <aacton@yorku.ca> 0.1.1-1mdk
+- initial package
