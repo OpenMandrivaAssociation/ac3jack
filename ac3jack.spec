@@ -1,7 +1,7 @@
 Name:		ac3jack
 Summary:	Jack audio to ac3 surround converter
 Version:	2.0.3
-Release:	8
+Release:	9
 
 Source0:	http://www.essej.net/ac3jack/%{name}-%{version}.tar.gz
 Patch0:		%{name}-2.0.3-mdv-fix-gcc4.4.patch
