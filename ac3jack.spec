@@ -14,8 +14,8 @@ BuildRequires:	pkgconfig(sndfile)
 BuildRequires:	ffmpeg-devel
 BuildRequires:	aften-static-devel
 BuildRequires:	libsigc++1.2-devel
-BuildRequires:	liblo-devel
-BuildRequires:	libxml2-devel
+BuildRequires:	pkgconfig(liblo)
+BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	wxgtku-devel
 BuildRequires:	boost-devel
 
