@@ -6,7 +6,7 @@ Release:	10
 Source0:	http://www.essej.net/ac3jack/%{name}-%{version}.tar.gz
 Patch0:		%{name}-2.0.3-mdv-fix-gcc4.4.patch
 Patch1:		ac3jack-2.0.3-boost-mt.patch
-URL:		http://www.essej.net/ac3jack/
+URL:		https://www.essej.net/ac3jack/
 License:	GPLv2+
 Group:		Sound
 BuildRequires:	jackit-devel
