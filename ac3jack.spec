@@ -9,6 +9,11 @@ Patch1:		ac3jack-2.0.3-boost-mt.patch
 URL:		https://www.essej.net/ac3jack/
 License:	GPLv2+
 Group:		Sound
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	jackit-devel
 BuildRequires:	pkgconfig(sndfile)
 BuildRequires:	ffmpeg-devel
